@@ -1,0 +1,21 @@
+import numpy as np
+import csv
+
+
+
+def openCSV(file):
+    matrix=[]
+    f = open(file)
+    fileMatrix= csv.reader(f)
+    k=-1
+    for line in fileMatrix:
+        matrix.append([])
+        k+=1
+        for i in range(len(line)):
+            if line[i]=='np.NAN':
+                matrix[k].append(np.NAN)
+            else :
+                matrix[k].append(int(line[i]))
+    return matrix
+print(openCSV('matrix.csv'))
+    
